@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FTN: Scenarios</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script > 
+
+	<style type="text/css">
+
+		<!-- Navigation bar styling -->
+		.topnav {
+		}
+
+		.topnav a {
+			float: right;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 30px;
+		}
+
+		.topnav a:hover {
+			color: #80b3ffff;
+		}
+
+		.topnav a:active {
+			color: #333;
+		}
+		
+		.topnav img{
+			padding: 10px;
+			max-height: 40px;
+		}
+
+		.topnav hr {
+			position: absolute;
+			left:0;
+			bottom:0;
+			width:100%;
+			color:black;
+		}
+
+		
+
+		body {
+			font-family: helvetica;
+			background: #333;
+			font-size: 20px;
+			color:#f2f2f2;
+		}
+
+		p {
+			text-align: justify;
+			padding-left: 12.5%;
+			padding-right: 12.5%;
+		}
+
+		hr {
+			height: 3px;
+			background-color: #dbdee3ff;
+		}
+		
+		.container{
+			display: inline-block;
+		}
+
+		.MainBody h1 {
+			padding: 10px 20px;
+			text-align: center;
+			font-size: 50px;
+		}
+
+
+		.Buttons{
+			font-size: 25px;
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.Buttons table{
+			text-align: center;
+			padding-right:5%;
+			padding-left:5%;
+			width: 100%;
+		}
+
+		.Buttons tr {
+			padding-top: 10%;
+			padding-bottom: 5px;
+		}
+
+		.Buttons td {
+			width: 33%;
+			padding: 2%;
+
+		}
+
+		.Buttons button,input {
+			width: 200px;
+			padding: 10px;
+			line-height: 20px;
+			font-weight: bold;
+			font-size: 23px;
+			border-style: solid;
+			border-width: 6px;
+			border-radius: 10px;
+			border-color: #ff5555ff;
+			align-content: center;
+		}
+
+		.Buttons select{
+
+		}
+
+		#Judging button,input{
+			width: 300px;
+			line-height: 50px;
+			font-size: 30px;
+			border-color: #80b3ffff;
+
+		}
+
+		.InTheNews h2 {
+			padding: 10px 20px;
+			text-align: center;
+			font-size: 30px;
+		}
+
+		.InTheNews h3 {
+			font-style: italic;
+		}
+
+
+		.InTheNews blockquote{
+			text-align: center;
+			font-style: italic;
+			font-weight: bold;
+
+		}
+
+		.InTheNews ul {
+			list-style-type: none;
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 70%
+		}
+
+		#footer {
+			/*position: fixed;
+			left:0px;
+			bottom:0px;*/
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 1%
+		}
+
+		#footer a{
+			color: #f2f2f2;
+			size: 30px;
+			visited:#f2f2f2;
+			active:#f2f2f2;
+			text-decoration: none;
+		}
+
+		#footer img {
+			max-height: 115px;
+		}
+
+		#footer table{
+			bottom: 0;
+			text-align: center;
+			padding-right:10%;
+			padding-left:10%;
+			width: 100%;
+		}
+
+		#footer td {
+			width: 33%;
+		}
+
+	</style>
+
+
+</head>
+<body onload="make_uid()">
+
+	<script type="text/javascript">
+		var uid_array;
+
+		function make_uid(){
+			var uid_req = new XMLHttpRequest();
+			uid_req.onload = function() {
+
+				get_uid(JSON.parse(this.responseText));
+				// console.log(uid_array);
+				// console.log(uid_array['uid']);
+			}
+
+			var url = 'MAKE_USER.php';
+			uid_req.open("GET",url,true);
+			uid_req.send();
+			// console.log(uid_array)
+		}
+
+		function get_uid(data){
+			uid_array = data;
+			console.log(uid_array);
+		}
+
+		function test_funct(){
+			console.log(uid_array['uid']);
+		}
+
+		function pictureChange(){
+			document.getElementById('MyImage').src = "http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png";
+		}
+
+		console.log(uid_array);
+		// document.getElementById('test').innerHTML = uid_array;
+		// function uid_process(the)
+	</script>
+
+	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;">
+
+		<img src="images/FTN_Logo.png">
+		<a href="#feedback">Feedback</a>
+		<a href="#about">About</a>
+		<a href="#judge">Judge</a>
+		<a class="active" href="#home">Home</a>
+
+		<hr>
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+
+	<div id="Left">
+		<button onclick="pictureChange()">Flood This</button>
+		<img id="MyImage" src="http://31.media.tumblr.com/18b5f8f0a00ad01e50f7ae2f513be52d/tumblr_msqcl4iwM01soh1p8o1_500.png">
+	</div>
+
+	<div id="Right"></div>
+	
+
+
+	<div id="test"></div>
+
+
+	<div id="footer">
+		<hr>
+		<table>
+			<tr>
+				<!-- Original Size 244x224 -->
+				<td><a href="https://uiowa.edu/"><img src="images/UIOWA-LOGO.png"></a></td>
+
+				<!-- Original size 800x400 -->
+				<td><a href="https://hydroinformatics.uiowa.edu/#"><img src="images/uihilab_logo.png"><br><b>UIHI Lab</b></a></td>
+
+				<!-- Original size 300x115 -->
+				<td><a href="https://www.iihr.uiowa.edu/"><img src="images/IIHR-Logo.jpg"></a></td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<meta name="description" content="Landing Page for Flood Thy Neighbor serious game">
+<meta name="author" content="Gregory Ewing">
+<meta name="keywords" content="HTML, CSS, javascript">
+
+<html>
+<head>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script >  
+
+	<title>Flood Thy Neighbor</title>
+
+	<style type="text/css">
+
+		<!-- Navigation bar styling -->
+		div.topnav {
+			z-index: 9;
+			position: fixed;
+		}
+
+		.topnav a {
+			float: right;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 30px;
+		}
+
+		.topnav a:hover {
+			color: #80b3ffff;
+		}
+
+		.topnav a:active {
+			color: #333;
+		}
+		
+		.topnav img{
+			padding: 10px;
+			max-height: 40px;
+		}
+
+		.topnav hr {
+			position: absolute;
+			left:0;
+			bottom:0;
+			width:100%;
+			color:black;
+		}
+
+		
+
+		body {
+			font-family: helvetica;
+			background: #333;
+			font-size: 20px;
+			color:#f2f2f2;
+		}
+
+		p {
+			text-align: justify;
+			padding-left: 12.5%;
+			padding-right: 12.5%;
+		}
+
+		hr {
+			height: 3px;
+			background-color: #dbdee3ff;
+		}
+		
+		.container{
+			display: inline-block;
+		}
+
+		.MainBody h1 {
+			padding: 10px 20px;
+			text-align: center;
+			font-size: 50px;
+		}
+
+
+		.Buttons{
+			font-size: 25px;
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.Buttons table{
+			text-align: center;
+			padding-right:5%;
+			padding-left:5%;
+			width: 100%;
+		}
+
+		.Buttons tr {
+			padding-top: 10%;
+			padding-bottom: 5px;
+		}
+
+		.Buttons td {
+			width: 33%;
+			padding: 2%;
+
+		}
+
+		.Buttons button,input {
+			width: 200px;
+			padding: 10px;
+			line-height: 20px;
+			font-weight: bold;
+			font-size: 23px;
+			border-style: solid;
+			border-width: 6px;
+			border-radius: 10px;
+			border-color: #ff5555ff;
+			align-content: center;
+		}
+
+		.Buttons select{
+
+		}
+
+		#Judging button,input{
+			width: 300px;
+			line-height: 50px;
+			font-size: 30px;
+			border-color: #80b3ffff;
+
+		}
+
+		.InTheNews h2 {
+			padding: 10px 20px;
+			text-align: center;
+			font-size: 30px;
+		}
+
+		.InTheNews h3 {
+			font-style: italic;
+		}
+
+
+		.InTheNews blockquote{
+			text-align: center;
+			font-style: italic;
+			font-weight: bold;
+
+		}
+
+		.InTheNews ul {
+			list-style-type: none;
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 70%
+		}
+
+		div.listContainer{
+			z-index: -1;
+			width: 700px;
+			text-align: center;
+			position: relative;
+			align-content: center;
+			align-self: center;
+			align-content: center;
+		}
+
+		.listContainer a {
+			z-index: 1;
+			color: #f2f2f2;
+			text-decoration: none;
+		}
+
+		.listTextBlock{
+			z-index: 1;
+			width: 700px;
+			position: absolute;
+			bottom: 4px;
+			font-size: 15px;
+			background-color: #1c242255;
+		}
+
+		#merlin {
+			max-width: 700px;
+			z-index: -2;
+			position: relative;
+		}
+
+		#Reveal {
+			max-width: 700px;
+			z-index: -2;
+			position: relative;
+		}
+
+		#farmflooding {
+			max-width: 700px;
+			z-index: -2;
+			position: relative;
+		}
+
+		#footer {
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 1%;
+		}
+
+		#footer a{
+			color: #f2f2f2;
+			size: 30px;
+			visited:#f2f2f2;
+			active:#f2f2f2;
+			text-decoration: none;
+		}
+
+		#footer img {
+			max-height: 115px;
+		}
+
+		#footer table{
+			bottom: 0;
+			text-align: center;
+			padding-right:10%;
+			padding-left:10%;
+			width: 100%;
+		}
+
+		#footer td {
+			width: 33%;
+		}
+
+	</style>
+
+
+</head>
+<body>
+	<script type="text/javascript">
+		function goToSelectedScenario(){
+			var e = document.getElementById('ScenarioSelect');
+			var val = e.options[e.selectedIndex].value;
+			var link = 'scenario'+val+'.html';
+			console.log(link);
+			return link
+		}
+	</script>
+
+	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;">
+
+		<img src="images/FTN_Logo.png">
+		<a href="#feedback">Feedback</a>
+		<a href="#about">About</a>
+		<a href="#judge">Judge</a>
+		<a class="active" href="#home">Home</a>
+
+		<hr>
+	</div>
+
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<div class='MainBody'>
+			<h1>Welcome to <img src="images/FTN_Logo.png"></h1>
+
+			<p><i>Flood Thy Neighbor</i> is a platform to explore people's attitudes towards flooding.
+
+			Here, we gather the human perspective on the moral decisions in water resources management.
+
+			We show you moral dilemas of managing floods, and you tell us what your preference is; which landscape should be flooded and which should be spared.
+			</p> 
+		</div>
+
+
+		<div class="Buttons">
+			<table>
+				<tr>
+					<td>
+						<input type="button" id="Judging" onclick="location.href='scenarios.html';" value="Start Judging"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button onclick="location.href='instructions.html';">View Instructions</button>
+					</td>
+				</tr>
+
+					
+				<tr>
+					<td>
+						<button onclick="location.href=goToSelectedScenario();">View Scenario</button>
+						<br>
+						<select id="ScenarioSelect">
+							<option value=0 selected="selected">Scenarios</option>
+							<option value="1">Primary Road, Downstream, Urban	VS.	Upper, Multi Family, Suburban</option>
+							<option value="2">Store, Corporation, Upstream, Urban	VS.	Bank, Cooperative/Locally Owned, Downstream, Suburban</option>	
+							<option value="3">Government Building, Upstream, Rural	VS.	Primary Road, Upstream, Suburban</option>
+							<option value="4">Middle, Multi Family, Suburban	VS.	Chemical Plant, Corporation, Upstream</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<hr>
+
+		<div class="InTheNews">
+			<h2><u>Flooding: <i>In the News</i></u></h2>
+			<p>Recent flooding across the midwest has brought greater awareness of the difficult decisions  flood control and emergency managers must make when flood waters come and the potential for uneven damages to land and property is imminent. 
+
+			Many see the difficulty of river management under multiple, sometimes competing objectives. 
+
+			Others however feel that the efforts of flood control operations as insufficient.</p>
+
+			<p>These choice structures and sentiments have been chronicled by journalists in national and regional papers. 
+
+			The following is a short collection of some the work that has been done.</p>
+
+			<ul>
+				<li>
+					<div class="listContainer">
+						<img id="Reveal" src="images/Reveal_levee_houses.jpg">
+						<div class="listTextBlock">
+							<h3><a href="https://www.revealnews.org/article/flood-thy-neighbor-who-stays-dry-and-who-decides/">
+							Flood thy neighbor: Who stays dry and who decides?</a></h3>
+							<i>"The Army Corps of Engineers has a huge, complex job – reducing flood risk across the nation’s rivers and coasts and a requirement to do it in a way that benefits the country economically... In practice, those formulas determine who gets flooded and who gets saved."</i>
+							<br>
+							- Lisa Song, Patrick Michels, and Al Shaw 
+							<br>
+							Reveal, from the Center for Investigative Reporting
+						<br>
+						</div>
+						
+					</div>
+				</li>
+
+				<br>
+				<br>
+
+				<li>
+					<div class="listContainer">
+						<img id="merlin" src="images/NYTimes_merlin.jpg" alt="Flood Thy Neighbor, Reveal">
+						<div class="listTextBlock">
+							<h3><a href="https://nyti.ms/2TLVuKa">
+							 The Fight to Tame a Swelling River With Dams That May Be Outmatched by Climate Change</a></h3>
+
+							<i>... decisions affect the lives of countless communities and ecosystems -- the cities, factories and power plants that draw water from the river; the endangered species that nest on its sandbars; the farmers who cultivate its floodplains...</i>
+							<br>
+							- Tyler J. Kelley, NYtimes
+							<br>
+						</div>
+					</div>
+				</li>
+
+				<br>
+				<br>
+
+				<li>
+					<div class="listContainer">
+						<img id="farmflooding" src="images/FarmFlooding.jpg" alt="Kansas City Star, Farm Flooding">
+						<div class="listTextBlock">
+							<h3><a href="https://www.kansascity.com/news/local/article205100154.html">
+							Judge says Corps of Engineers is responsible for damaging floods along Missouri River</a></h3>
+							<i>
+								"Under federal law the river is to be managed ... by balancing flood control, navigation, water supply, irrigation, power, recreation, water quality and wildlife preservation.""
+							</i>
+							<br>
+							- Matt Campbell, Kansas City Star
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+
+
+		
+
+	</div>
+
+	<div id="footer">
+		<hr>
+		<table>
+			<tr>
+				<!-- Original Size 244x224 -->
+				<td><a href="https://uiowa.edu/"><img src="images/UIOWA-LOGO.png"></a></td>
+
+				<!-- Original size 800x400 -->
+				<td><a href="https://hydroinformatics.uiowa.edu/#"><img src="images/uihilab_logo.png"><br><b>UIHI Lab</b></a></td>
+
+				<!-- Original size 300x115 -->
+				<td><a href="https://www.iihr.uiowa.edu/"><img src="images/IIHR-Logo.jpg"></a></td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>
