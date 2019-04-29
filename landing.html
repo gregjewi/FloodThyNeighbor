@@ -62,6 +62,7 @@
 			text-align: justify;
 			padding-left: 12.5%;
 			padding-right: 12.5%;
+			line-height: 25px;
 		}
 
 		hr {
@@ -199,11 +200,25 @@
 			position: relative;
 		}
 
+		#feedback {
+			text-align: center;
+			font-size: 12px;
+			color: #f2f2f2;
+			text-decoration: none;
+		}
+
+		#feedback a{
+			color: #f2f2f2;
+			visited:#f2f2f2;
+			active:#f2f2f2;
+		}
+
 		#footer {
 			width:100%;
 			margin-left: auto;
 			margin-right: auto;
 			padding-bottom: 1%;
+			background-color:#6d7c91ff;
 		}
 
 		#footer a{
@@ -235,6 +250,7 @@
 
 </head>
 <body>
+	<a name="home"></a>
 	<script type="text/javascript">
 		function goToSelectedScenario(){
 			var e = document.getElementById('ScenarioSelect');
@@ -249,14 +265,16 @@
 
 		<img src="images/FTN_Logo.png">
 		<a href="#feedback">Feedback</a>
-		<a href="#about">About</a>
-		<a href="#judge">Judge</a>
+		<a href="#InTheNews">In The News</a>
+		<!-- <a href="#about">About</a> -->
+		<a href="scenarios.html">Judge</a>
 		<a class="active" href="#home">Home</a>
 
 		<hr>
 	</div>
 
 	<div class="container">
+		
 		<br>
 		<br>
 		<br>
@@ -280,7 +298,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<!-- <tr>
 					<td>
 						<button onclick="location.href='instructions.html';">View Instructions</button>
 					</td>
@@ -299,16 +317,18 @@
 							<option value="4">Middle, Multi Family, Suburban	VS.	Chemical Plant, Corporation, Upstream</option>
 						</select>
 					</td>
-				</tr>
+				</tr> -->
 			</table>
 		</div>
 
 		<br>
+		<a name="InTheNews"></a>
 		<br>
 		<br>
 		<br>
 
 		<hr>
+
 
 		<div class="InTheNews">
 			<h2><u>Flooding: <i>In the News</i></u></h2>
@@ -380,11 +400,23 @@
 		</div>
 
 
-		
+	<br>
+	<br>
+	
+	<br>
+	
 
 	</div>
 
+	<a name="feedback"></a>
+	<div id="feedback">
+		Feedback? <br> 
+		<a href="https://github.com/gregjewi/FloodThyNeighbor">Github</a> <br>
+		gregory dot ewing at uiowa dot edu
+	</div>
+
 	<div id="footer">
+
 		<hr>
 		<table>
 			<tr>

@@ -13,19 +13,6 @@ function getUserIpAddr(){
     return $ip;
 }
 
-// function createUserInTable($uid_array){
-// 	// this is database connection information
-// 	$database = 'host=s-l112.engr.uiowa.edu dbname=postgres user=student7 password=engr-2019-7';
-
-// 	// pg_connect command allows database connection
-// 	$connection = pg_connect($database);
-
-// 	$query = "INSERT INTO uid_table (ip, t_epoch,  uid) VALUES ($uid_array['ip'], $uid_array['time'],$uid_array['uid'])";
-
-// 	$result = pg_prepare($connection,"qry1",$query);
-// 	$result = pg_execute($connection,"qry1",array();
-
-// }
 
 $ip = getUserIpAddr();
 $t = time();

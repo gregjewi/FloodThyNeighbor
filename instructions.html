@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instructions</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function hideShowInstructions(){
+			var x = document.getElementById("InstructionText");
+			  if (x.style.display === "none") {
+			    x.style.display = "block";
+			  } else {
+			    x.style.display = "none";
+			  }
+		} 
+	</script>
+
+	<div class="Instructions">
+		<div id="InstructionText">
+			Instructions Here.
+		</div>
+		<button onclick="hideShowInstructions()">Hide/Show Instructions</button>
+	<div>
+
+</body>
+</html>

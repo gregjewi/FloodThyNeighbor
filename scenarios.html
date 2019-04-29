@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
+<meta name="description" content="Gameplay Page for Flood Thy Neighbor serious game">
+<meta name="author" content="Gregory Ewing">
+<meta name="keywords" content="HTML, CSS, javascript">
+
 <html>
 <head>
 	<title>FTN: Scenarios</title>
@@ -28,123 +33,157 @@
 		}
 		
 		.topnav img{
+			position: absolute;
+			left: 0px;
 			padding: 10px;
 			max-height: 40px;
 		}
 
 		.topnav hr {
-			position: absolute;
 			left:0;
 			bottom:0;
 			width:100%;
 			color:black;
 		}
 
-		
+		div.Instructions {
+			width:100%;
+			display:block;
+		}
 
 		body {
 			font-family: helvetica;
 			background: #333;
 			font-size: 20px;
+			line-height: 25px;
 			color:#f2f2f2;
+			text-align: center;
 		}
+
+		section {
+			width: 100%;
+			overflow: auto;
+		}
+
+		div.ib {
+			display: none;
+  			line-height: 1.3em;
+  			vertical-align: top;
+  			margin: 1em;
+  			border-radius: 10px;
+  			box-sizing: border-box;
+  			width: 40%;
+  			border-style: solid;
+  			border-color: black;
+  			border-width: 10px;
+  			padding: 1%;
+  			background-color:#6d7c91ff;
+		}
+
+		.ib img{
+			max-width: 100%;
+		}
+
 
 		p {
 			text-align: justify;
 			padding-left: 12.5%;
 			padding-right: 12.5%;
+			line-height: 25px;
 		}
 
 		hr {
 			height: 3px;
 			background-color: #dbdee3ff;
+			margin-bottom: 20px;
 		}
 		
-		.container{
-			display: inline-block;
-		}
-
-		.MainBody h1 {
-			padding: 10px 20px;
-			text-align: center;
-			font-size: 50px;
-		}
-
-
-		.Buttons{
-			font-size: 25px;
-			width:100%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.Buttons table{
-			text-align: center;
-			padding-right:5%;
-			padding-left:5%;
-			width: 100%;
-		}
-
-		.Buttons tr {
-			padding-top: 10%;
-			padding-bottom: 5px;
-		}
-
-		.Buttons td {
-			width: 33%;
-			padding: 2%;
-
-		}
-
-		.Buttons button,input {
-			width: 200px;
-			padding: 10px;
-			line-height: 20px;
-			font-weight: bold;
-			font-size: 23px;
-			border-style: solid;
-			border-width: 6px;
-			border-radius: 10px;
-			border-color: #ff5555ff;
-			align-content: center;
-		}
-
-		.Buttons select{
-
-		}
-
-		#Judging button,input{
-			width: 300px;
-			line-height: 50px;
-			font-size: 30px;
+	
+		button,input{
+			width: 150px;
+			line-height: 30px;
+			font-size: 16px;
 			border-color: #80b3ffff;
-
+			border-radius: 10px;
+			border-width: 6px;
 		}
 
-		.InTheNews h2 {
-			padding: 10px 20px;
-			text-align: center;
+		button.flood{
+			border-color: #ff5555ff;
+			width: 250px;
 			font-size: 30px;
+			line-height: 50px;
 		}
 
-		.InTheNews h3 {
-			font-style: italic;
+		
+
+		.bar{
+			background-color: #f2f2f1;
+			width: 100%;
+			height: 30px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.bar {
+			font-size: 14px;
+			text-align: left;
+		}
+
+		.chart-wrap hr{
+			background-color: #333;
+			border-color: #333;
+		}
+
+		.chart-wrap h4 {
+			/*color: #333;*/
+			text-align: left;
+			font-size: 14px;
+			line-height: 14px;
+			padding: 0%;
+			margin-bottom: 2px;
+		}
+
+		.scenarioDescription div{
+			align-content: center;
+
+		}
+		.scenarioDescription img{
+			width:100%;
+			margin: auto;
+		}
+		.scenarioDescription button {
+			width:75px;
 		}
 
 
-		.InTheNews blockquote{
+		.bar-inner{
+			width:0%;
+			height:100%;
+			background-color: #2ecc71;
+		}
+
+		
+
+		#R_injured, #R_dead, #L_injured, #L_dead {
+			background-color: #aa0000b3;
+		}
+
+		#R_environ, #L_environ {
+			background-color: #3957ab;
+		}
+
+		#feedback {
 			text-align: center;
-			font-style: italic;
-			font-weight: bold;
-
+			font-size: 12px;
+			color: #f2f2f2;
+			text-decoration: none;
 		}
 
-		.InTheNews ul {
-			list-style-type: none;
-			display: table;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 70%
+		#feedback a{
+			color: #f2f2f2;
+			visited:#f2f2f2;
+			active:#f2f2f2;
 		}
 
 		#footer {
@@ -154,7 +193,8 @@
 			width:100%;
 			margin-left: auto;
 			margin-right: auto;
-			padding-bottom: 1%
+			padding-bottom: 1%;
+			background-color:#6d7c91ff;
 		}
 
 		#footer a{
@@ -183,54 +223,221 @@
 
 	</style>
 
-
 </head>
 <body onload="make_uid()">
 
 	<script type="text/javascript">
-		var uid_array;
+		console.log('start');
 
+		// MAKE SCENARIO ARRAY FROM 10 RANDOMLY SELECTED SCENARIOS
+		// var scenarios_array = {};
+		var scenarios_array = [];
+		var scenarios = [];
+			var stack = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+
+			for (var i = 0; i <10; i++){
+				// console.log('Begin Level: '+i);
+			    // index of scenario picked.
+			    var pick = Math.floor(Math.random()*stack.length);
+			     
+			    // this var is unused atm
+			   	scenarios.push(stack[pick]);
+
+			   	// Get Scenario Data Via php
+			    request_scenario_data(i,stack[pick]);
+
+			    // Remove pick 
+			    stack.splice(pick,1);
+			}
+
+		// instantiate uid array global variable
+		var uid_array;
+		
 		function make_uid(){
 			var uid_req = new XMLHttpRequest();
 			uid_req.onload = function() {
-
 				get_uid(JSON.parse(this.responseText));
-				// console.log(uid_array);
-				// console.log(uid_array['uid']);
 			}
 
 			var url = 'MAKE_USER.php';
 			uid_req.open("GET",url,true);
 			uid_req.send();
-			// console.log(uid_array)
 		}
 
 		function get_uid(data){
 			uid_array = data;
-			console.log(uid_array);
 		}
 
-		function test_funct(){
-			console.log(uid_array['uid']);
+
+		function request_scenario_data(i,key){
+			var request = new XMLHttpRequest();
+			request.onload = function(){
+				// console.log('request.onload: '+i);
+				addto_scenario_array(i,JSON.parse(this.responseText));
+			}
+
+			var url = 'scenario_array.php?scenario_key='+key;
+			request.open("GET",url,true);
+			request.send();
 		}
 
-		function pictureChange(){
-			document.getElementById('MyImage').src = "http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png";
+		function addto_scenario_array(i,data) {
+			scenarios_array.push(data);
+			// console.log('addto_scenario_array :'+i);
 		}
 
-		console.log(uid_array);
-		// document.getElementById('test').innerHTML = uid_array;
-		// function uid_process(the)
+	</script>
+	<script type="text/javascript">
+		var step = 0;
+		var graph_ids = [
+			'L_public',
+			'L_private',
+			'L_dead',
+			'L_injured',
+			'L_environ',
+			'R_public',
+			'R_private',
+			'R_injured',
+			'R_dead',
+			'R_environ'
+			];
+
+		var descriptionIds = [
+			'L_details',
+			'R_details'
+			];
+
+
+		function StartGame(){
+			var x = document.getElementById('StartGame');
+			x.style.display = 'none';
+			var x = document.getElementById("left");
+			x.style.display = "inline-block";
+			var x = document.getElementById("right");
+			x.style.display = "inline-block";
+
+			serveFirst()
+		}
+
+		function serveFirst(){
+			serveDamages();
+			servePhotos();
+		}
+
+		function serveDamages(){
+			// Serve Values
+			for (var i = 0; i < graph_ids.length; i++){
+
+				var id = document.getElementById(graph_ids[i]);
+				var n = Number(scenarios_array[step][graph_ids[i]]);
+				n = n * 10;
+				id.style.width = n + "%";
+			}
+		}
+
+		function servePhotos(){
+			var foto = document.getElementById('img-left');
+			foto.src = 'images/'+scenarios_array[step]['L_img'];
+
+			var foto = document.getElementById('img-right');
+			foto.src = 'images/'+scenarios_array[step]['R_img'];
+		}
+		
+		function descriptionButton(){
+			button_str="<button onclick=\"showDescriptions()\"><img class=\"InformationButton\" src=\"images/InformationButton.png\"></button>";
+		
+			for (var i = 0; i < descriptionIds.length; i++){
+				var id = document.getElementById(descriptionIds[i]);
+				id.innerHTML = button_str;
+			}
+		}
+
+		function showDescriptions(){
+			for (var i = 0; i < descriptionIds.length; i++){
+				var id = document.getElementById(descriptionIds[i]);
+				id.innerHTML = scenarios_array[step][descriptionIds[i]];
+			}
+		}
+
+		function log_response(url_str){
+			var request = new XMLHttpRequest();
+			request.onload = function(){
+				console.log('Response Logged');
+			}
+			request.open("GET",url_str,true);
+			request.send();
+		}
+
+		function closeGameDivs(){
+			var x = document.getElementById('scenarios');
+			x.style.display = 'none';
+
+			var x = document.getElementById('howto');
+			x.style.display = 'none';
+		}
+
+		function openFormDivs(){
+			var x = document.getElementById("FormDiv");
+			  if (x.style.display === "none") {
+			    x.style.display = "block";
+			  } else {
+			    x.style.display = "none";
+			  }
+
+			// var x = document.getElementById('');
+			// x.style.display = 'inline-block';
+		}
+
+		function serveNext(flood){
+			// 1. Log answer in database
+			// console.log(scenarios_array[step]['key'],flood,uid_array['uid']);
+			var url_str = 'log_response.php?scenario_key='+scenarios_array[step]['key']+'&uid='+uid_array['uid']+'&LR='+flood;
+			log_response(url_str);
+
+			// If end of queue exit, else serve next scenario
+			if (step == 9) {
+				console.log('Inside If')
+				closeGameDivs();
+				window.location.href = 'more_information.html?uid='+uid_array['uid'];
+				// openFormDivs();
+			}
+			else {
+				
+				step++;
+
+				// 2. Update Picture
+				servePhotos();
+
+				// 3. Update Damage Values
+				serveDamages();
+				
+				// 4. Update Description
+				descriptionButton();
+			}
+		}
+
+		function hideShowInstructions(){
+			var x = document.getElementById("InstructionText");
+			  if (x.style.display === "none") {
+			    x.style.display = "block";
+			  } else {
+			    x.style.display = "none";
+			  }
+		}
+
 	</script>
 
 	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;">
 
-		<img src="images/FTN_Logo.png">
+		<a href="landing.html"><img src="images/FTN_Logo.png"></a>
 		<a href="#feedback">Feedback</a>
-		<a href="#about">About</a>
-		<a href="#judge">Judge</a>
-		<a class="active" href="#home">Home</a>
+		<!-- <a href="#about">About</a> -->
+		<a href="#judge" class="active">Judge</a>
+		<a href="landing.html">Home</a>
+		<!-- <a class="active" href="#home">Home</a> -->
 
+		<br>
+		<br>
 		<hr>
 	</div>
 
@@ -238,18 +445,161 @@
 	<br>
 	<br>
 
+	<a name="judge"></a>
+	<section id="scenarios">
+		<h1>
+			<img src="images/FTN_Logo.png">
+			<!-- Side-By-Side Positioning Demo -->
+			<br>
+			<br>
+			<button id="StartGame" onclick="StartGame()">Start Game</button>
+		</h1>
+		
 
-	<div id="Left">
-		<button onclick="pictureChange()">Flood This</button>
-		<img id="MyImage" src="http://31.media.tumblr.com/18b5f8f0a00ad01e50f7ae2f513be52d/tumblr_msqcl4iwM01soh1p8o1_500.png">
-	</div>
 
-	<div id="Right"></div>
+		<div class="ib" id="left">
+			<br>
+			<br>
+			
+			<!-- <img id="img-left" src="images/Basement_vs_Factory-Left.png"> -->
+			<img id="img-left" src="">
+
+			<br>
+			<br>
+
+			<button id='L_flood' class="flood" onclick="serveNext('L')">Flood This</button>
+
+			<br>
+			<br>
+			
+			
+
+			<div class="chart-wrap">
+				<h3>Damages</h3>
+			
+				<h4>$: Public</h4>
+				<div class="bar money">
+					<div class="bar-inner" id="L_public"></div>
+				</div>
+
+				<h4>$: Private</h4>
+				<div class="bar money">
+					<div class="bar-inner" id="L_private"></div>
+				</div>
+				<hr>
+
+				<h4>Injuries</h4>
+				<div class="bar life">
+					<div class="bar-inner" id="L_injured"></div>
+				</div>
+
+				<h4>Deaths</h4>
+				<div class="bar life">
+					<div class="bar-inner" id="L_dead"></div>
+				</div>
+				<hr>
+
+				<h4>Environmental Impact</h4>
+				<div class="bar nature">
+					<div class="bar-inner" id="L_environ"></div>
+				</div>
+			</div>
+			<!-- <button onclick="serveFirst()">SHOW VALUES</button> -->
+
+			<br>
+			<br>
+
+			<div class="scenarioDescription" id="L_details">
+				<button onclick="showDescriptions()">
+					<img class="InformationButton" src="images/InformationButton.png">
+				</button>
+			</div>
 	
+					
+
+			</div>			
+		</div>
+		<div class="ib" id="right">
+			<br>
+			<br>
+
+			<!-- <img id="MyImage" src="images/Basement_vs_Factory-Right.png"> -->
+			<img id="img-right" src="">
+
+			<br>
+			<br>
+
+			<button id="R_flood" class="flood" onclick="serveNext('R')">Flood This</button>
+			
+			<br>
+			<br>
+
+			<div class="chart-wrap">
+				<h3>Damages</h3>
+
+				<h4>$: Public</h4>
+				<div class="bar money">
+					<div class="bar-inner" id="R_public"></div>
+				</div>
+
+				<h4>$: Private</h4>
+				<div class="bar money">
+					<div class="bar-inner" id="R_private"></div>
+				</div>
+
+				<hr>
+
+				<h4>Injuries</h4>
+				<div class="bar life">
+					<div class="bar-inner" id="R_injured"></div>
+				</div>
+
+				<h4>Deaths</h4>
+				<div class="bar life">
+					<div class="bar-inner" id="R_dead"></div>
+				</div>
+
+				<hr>
+
+				<h4>Environmental Impact</h4>
+				<div class="bar nature">
+					<div class="bar-inner" id="R_environ"></div>
+				</div>
+			</div>
+			<!-- <button onclick="serveFirst()">SHOW VALUES</button> -->
+
+			<br>
+			<br>
+
+			<div class="scenarioDescription" id="R_details">
+				<button onclick="showDescriptions()">
+					<img class="InformationButton" src="images/InformationButton.png">
+				</button>
+			</div>
+			
+
+		</div>
+	</section>
 
 
-	<div id="test"></div>
+	<div id="howto" class="Instructions">
+		<button onclick="hideShowInstructions()">Hide/Show Instructions</button>
 
+		<div id="InstructionText" style="display:none;">
+			Instructions Here.
+		</div>
+	<div>
+
+
+	<br>
+	<br>
+	<br>
+	<a name="feedback"></a>
+	<div id="feedback">
+		Feedback? <br> 
+		<a href="https://github.com/gregjewi/FloodThyNeighbor">Github</a> <br>
+		gregory dot ewing at uiowa dot edu
+	</div>
 
 	<div id="footer">
 		<hr>
