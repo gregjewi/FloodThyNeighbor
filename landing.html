@@ -4,6 +4,9 @@
 <meta name="author" content="Gregory Ewing">
 <meta name="keywords" content="HTML, CSS, javascript">
 
+<!-- https://tinyurl.com/y6mfztbc -->
+<!-- https://tinyurl.com/FloodThyNeighbor -->
+
 <html>
 <head>
 
@@ -14,8 +17,40 @@
 	<style type="text/css">
 
 		<!-- Navigation bar styling -->
-		div.topnav {
-			z-index: 9;
+		.topnav {
+		}
+
+		.topnav a {
+			float: right;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 30px;
+		}
+
+		.topnav a:hover {
+			color: #80b3ffff;
+		}
+
+		.topnav a:active {
+			color: #333;
+		}
+		
+		.topnav img{
+			position: absolute;
+			left: 0px;
+			padding-left: 10px;
+			max-height: 40px;
+		}
+
+		.topnav hr {
+			left:0;
+			bottom:0;
+			width:100%;
+			color:black;
+		}
+		/*div.topnav {
 			position: fixed;
 		}
 
@@ -37,7 +72,9 @@
 		}
 		
 		.topnav img{
-			padding: 10px;
+			position: absolute;
+			left: 0px;
+			padding-left: 10px;
 			max-height: 40px;
 		}
 
@@ -47,7 +84,7 @@
 			bottom:0;
 			width:100%;
 			color:black;
-		}
+		}*/
 
 		
 
@@ -158,7 +195,7 @@
 		}
 
 		div.listContainer{
-			z-index: -1;
+			z-index: 0;
 			width: 700px;
 			text-align: center;
 			position: relative;
@@ -184,19 +221,19 @@
 
 		#merlin {
 			max-width: 700px;
-			z-index: -2;
+			z-index: 0;
 			position: relative;
 		}
 
 		#Reveal {
 			max-width: 700px;
-			z-index: -2;
+			z-index: 0;
 			position: relative;
 		}
 
 		#farmflooding {
 			max-width: 700px;
-			z-index: -2;
+			z-index: 0;
 			position: relative;
 		}
 
@@ -261,15 +298,17 @@
 		}
 	</script>
 
-	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;">
+	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;z-index: 10;height:70px;">
 
-		<img src="images/FTN_Logo.png">
+		<a href="landing.html"><img src="images/FTN_Logo.png" ></a>
 		<a href="#feedback">Feedback</a>
 		<a href="#InTheNews">In The News</a>
 		<!-- <a href="#about">About</a> -->
 		<a href="scenarios.html">Judge</a>
 		<a class="active" href="#home">Home</a>
 
+		<br>
+		<br>
 		<hr>
 	</div>
 

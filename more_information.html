@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<meta name="description" content="Game Survey">
+<meta name="author" content="Gregory Ewing">
+<meta name="keywords" content="HTML, CSS, javascript">
+<html>
+<head>
+	<title>Thanks for Playing!</title>
+
+	<!-- Include jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<style type="text/css">
+
+		<!-- Navigation bar styling -->
+		.topnav {
+		}
+
+		.topnav a {
+			float: right;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 30px;
+		}
+
+		.topnav a:hover {
+			color: #80b3ffff;
+		}
+
+		.topnav a:active {
+			color: #333;
+		}
+		
+		.topnav img{
+			position: absolute;
+			left: 0px;
+			padding-left: 10px;
+			max-height: 40px;
+		}
+
+		.topnav hr {
+			left:0;
+			bottom:0;
+			width:100%;
+			color:black;
+		}
+
+
+		body {
+			font-family: helvetica;
+			background: #333;
+			font-size: 20px;
+			line-height: 25px;
+			color:#f2f2f2;
+			text-align: center;
+		}
+
+		section {
+			width: 100%;
+			overflow: auto;
+		}
+
+
+		p {
+			text-align: justify;
+			padding-left: 12.5%;
+			padding-right: 12.5%;
+			line-height: 25px;
+		}
+
+		hr {
+			height: 3px;
+			background-color: #dbdee3ff;
+			margin-bottom: 20px;
+		}
+		
+	
+		button,input{
+			width: 150px;
+			line-height: 30px;
+			font-size: 16px;
+			border-color: #80b3ffff;
+			border-radius: 10px;
+			border-width: 6px;
+		}
+
+		input[type="text"], textarea {
+		  background-color : #dbdee3ff; 
+		}
+		input[type="number"], textarea {
+		  background-color : #dbdee3ff; 
+		}
+
+		#flood {
+			border-color: #ff5555ff;
+		}
+
+		button.flood{
+			border-color: #ff5555ff;
+			width: 250px;
+			font-size: 30px;
+			line-height: 50px;
+		}
+
+		div.forms {
+			width:80%;
+			text-align: justify;
+			margin: 10%;
+			padding:2%;
+			margin-top: 0%;
+			border-radius: 10px;
+  			box-sizing: border-box;
+  			border-style: solid;
+  			border-color: #dbdee3ff;
+  			border-width: 10px;
+  			background-color: #6d7c91ff;
+		}
+
+		#feedback {
+			text-align: center;
+			font-size: 10px;
+		}
+
+		#footer {
+			/*position: fixed;
+			left:0px;
+			bottom:0px;*/
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 1%;
+			background-color:#6d7c91ff;
+		}
+
+		#footer a{
+			color: #f2f2f2;
+			size: 30px;
+			visited:#f2f2f2;
+			active:#f2f2f2;
+			text-decoration: none;
+		}
+
+		#footer img {
+			max-height: 115px;
+		}
+
+		#footer table{
+			bottom: 0;
+			text-align: center;
+			padding-right:10%;
+			padding-left:10%;
+			width: 100%;
+		}
+
+		#footer td {
+			width: 33%;
+		}
+
+	</style>
+</head>
+<body onload="getuid()">
+
+	<div class="topnav" style="position:fixed; background-color:#6d7c91ff; overflow:hidden; width:100%; top:0;right:0;height:70px;">
+
+		<a href="landing.html"><img src="images/FTN_Logo.png" ></a>
+		<a href="#feedback">Feedback</a>
+		<!-- <a href="#about">About</a> -->
+		<a href="scenarios.html">Judge</a>
+		<a href="landing.html">Home</a>
+		<!-- <a class="active" href="#home">Home</a> -->
+
+		<br>
+		<br>
+		<hr>
+	</div>
+
+	<script type="text/javascript">
+		var getUrlParameter = function getUrlParameter(sParam) {
+		    var sPageURL = window.location.search.substring(1),
+		        sURLVariables = sPageURL.split('&'),
+		        sParameterName,
+		        i;
+
+		    for (i = 0; i < sURLVariables.length; i++) {
+		        sParameterName = sURLVariables[i].split('=');
+
+		        if (sParameterName[0] === sParam) {
+		            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+		        }
+		    }
+		};
+
+		var uid;
+		function getuid(){
+			uid = getUrlParameter('uid');
+			if (uid == undefined){
+				uid = '';
+			}
+
+			var x = document.getElementById('potato');
+			x.value = uid;
+		}
+
+		function logSurveyAnswers(){
+			
+			var age = getUrlParameter('age');
+			var gender = getUrlParameter('gen');
+
+			
+			var ht = getUrlParameter('ht');
+			var st = getUrlParameter('st');
+			var ct = getUrlParameter('ct');
+			
+			var profession = getUrlParameter('pro');
+			var ed = getUrlParameter('ed');
+			var income = getUrlParameter('inc');
+
+			var url_php = 'test.php?age='+age+'&gen='+gender+'&ht='+ht+'&st='+st+'&ct='+ct+'&pro='+profession+'&ed='+ed+'&in='+income+'&uid='+uid;
+			console.log(url_php);
+
+			
+			var req = new XMLHttpRequest();
+			req.onload = function() {
+				// do something here
+			}
+			req.open("GET",url_php,true);
+			req.send();
+			
+		}
+
+	</script>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>Thanks For Playing!</h1>
+
+	<p style="text-align:center">You finished playing <i>Flood Thy Neighbor</i>.
+	We would really appreciate if you tell us a little about yourself.</p>
+
+	<button style="width:200px;margin-bottom:10px;" onclick="location.href='results.php';">No Thanks,<br>(take me to the results)</button>
+
+	<div id="FormDiv" class="forms">
+		
+
+		<!-- <form onsubmit="logSurveyAnswers()"> -->
+		<form action="test.php" method="get" id="survey">
+			Age: <br>
+			<input type="number" name="age">
+			<br><br>
+
+			Gender:<br>
+			<input type="radio" name="gen" value="male" checked> Male<br>
+			<input type="radio" name="gen" value="female"> Female<br>
+			<input type="radio" name="gen" value="other"> Other
+			<br><br>
+
+			<hr>
+			Hometown (City of Origin): <br>
+			<input type="text" name="ht">
+			<br><br>
+
+			State: <br>
+			<input type="text" name="st">
+			<br><br>
+
+			Country: <br>
+			<input type="text" name="ct">
+			<br><br>
+
+			<hr>
+			Profession: <br>
+			<input type="text" name="pro">
+			<br><br>
+
+			Education Level (Highest):<br>
+			<input type="radio" name="ed" value="0">Less Than High School<br>
+			<input type="radio" name="ed" value="1">High School<br>
+			<input type="radio" name="ed" value="2">Associate Degree<br>
+			<input type="radio" name="ed" value="3">Bachelor Degree<br>
+			<input type="radio" name="ed" value="4">MS. or Ph.D.<br>
+			<br><br>
+
+			Income Bracket (per year):<br>
+			<input type="radio" name="inc" value="0">0 - $25,000<br>
+			<input type="radio" name="inc" value="1">$25,000 - $40,000<br>
+			<input type="radio" name="inc" value="2">$40,000 - $55,000<br>
+			<input type="radio" name="inc" value="3">$55,000 - $70,000<br>
+			<input type="radio" name="inc" value="4">$70,000 - $100,000<br>
+			<input type="radio" name="inc" value="5">$100,000 - $250,000<br>
+			<input type="radio" name="inc" value="6">$250,000 - $500,000<br>
+
+			<input type="text" name="uid" value="" id="potato" style="display:none">
+			<br>
+			<br>
+			<input type="submit" name="Submit" id="flood" value="Submit">
+
+		</form>
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	<a name="feedback"></a>
+	<div id="feedback">Feedback? <br> gregory dot ewing at uiowa dot edu</div>
+	<br>
+
+
+	<div id="footer">
+		<hr>
+		<table>
+			<tr>
+				<!-- Original Size 244x224 -->
+				<td><a href="https://uiowa.edu/"><img src="images/UIOWA-LOGO.png"></a></td>
+
+				<!-- Original size 800x400 -->
+				<td><a href="https://hydroinformatics.uiowa.edu/#"><img src="images/uihilab_logo.png"><br><b>UIHI Lab</b></a></td>
+
+				<!-- Original size 300x115 -->
+				<td><a href="https://www.iihr.uiowa.edu/"><img src="images/IIHR-Logo.jpg"></a></td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>
+
+

@@ -34,7 +34,8 @@ $result = pg_execute($connection,"qry1",array($uid, $age, $gen, $pro, $ht, $st, 
 </head>
 <body>
 	<script type="text/javascript">
-		window.location.href = 'landing.html';
+		window.location.href = 'results.php';
+		// window.location.href = 'results.html';
 	</script>
 	
 </body>
